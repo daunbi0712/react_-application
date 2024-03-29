@@ -45,10 +45,9 @@ const Main: React.FC = () => {
   }, []);
 
 
-  const handleItemClick = (prefCode: string) => {
-    const prefCodeNum = parseInt(prefCode, 10); //str->num
-    setSelectedPref(prefCode === selectedPref ? null : prefCode);
-    console.log(prefCode);
+  const handleItemClick = (prefCode: number) => {
+    const prefCodeNum = prefCode; 
+    console.log(prefCodeNum);
     axios
       .get(
         `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=11362&prefCode=${prefCodeNum}`, //use str
@@ -70,7 +69,7 @@ const Main: React.FC = () => {
       {prefectures && (
         <CheckField
           prefectures={prefectures.result}
-          onClick={handleItemClick}
+          onClickCode={handleItemClick}
           selectedPref={selectedPref}
           styles={Styles}
         />

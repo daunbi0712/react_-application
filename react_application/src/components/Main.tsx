@@ -50,7 +50,7 @@ const Main: React.FC = () => {
     console.log(prefCodeNum);
     axios
       .get(
-        `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=11362&prefCode=${prefCodeNum}`, //use str
+        `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${prefCodeNum}`, //use str
         {
           headers: { "X-API-KEY": process.env.REACT_APP_API_KEY },
         }

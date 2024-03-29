@@ -21,7 +21,7 @@ const CheckField: React.FC<Props> = ({
     <>
       <div style={styles.checkcardList}>
         {(prefectures || []).map((prefecture) => (
-          <div
+          <button
             style={{
               ...styles.checkcard,
               ...(prefecture.prefName === selectedPref && styles.selected),
@@ -30,7 +30,7 @@ const CheckField: React.FC<Props> = ({
             onClick={() => onClickCode(prefecture.prefCode)}
           >
             <label style={styles.text}>{prefecture.prefName}</label>
-          </div>
+          </button>
         ))}
       </div>
     </>

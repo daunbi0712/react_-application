@@ -6,14 +6,14 @@ type Props = {
         prefCode: number;
         prefName: string;
       }[];
-  onClick: (name: string) => void;
+  onClickCode: (code: number) => void;
   selectedPref: string | null;
   styles: { [key: string]: React.CSSProperties };
 };
 
 const CheckField: React.FC<Props> = ({
   prefectures,
-  onClick,
+  onClickCode,
   selectedPref,
   styles,
 }) => {
@@ -21,16 +21,16 @@ const CheckField: React.FC<Props> = ({
     <>
       <div style={styles.checkcardList}>
         {(prefectures || []).map((prefecture) => (
-          <div
+          <button
             style={{
               ...styles.checkcard,
               ...(prefecture.prefName === selectedPref && styles.selected),
             }}
             key={prefecture.prefName}
-            onClick={() => onClick(prefecture.prefName)}
+            onClick={() => onClickCode(prefecture.prefCode)}
           >
             <label style={styles.text}>{prefecture.prefName}</label>
-          </div>
+          </button>
         ))}
       </div>
     </>
